@@ -34,6 +34,7 @@ public class ClienteEntity implements Serializable {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<AlquilerEntity> alquileres;
+
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<DireccionEntity> direcciones;
 

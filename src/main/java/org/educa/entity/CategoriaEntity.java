@@ -25,6 +25,8 @@ public class CategoriaEntity implements Serializable {
     private Integer id;
     private String nombre;
     private String descripcion;
+
+    @OneToMany(mappedBy = "categoria")
     private List<VehiculoEntity> vehiculos;
 
 }

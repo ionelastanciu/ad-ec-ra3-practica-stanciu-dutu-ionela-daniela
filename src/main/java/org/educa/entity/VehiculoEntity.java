@@ -27,11 +27,27 @@ public class VehiculoEntity implements Serializable {
     private String modelo;
     private String color;
     private Integer anio;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_categoria")
     private CategoriaEntity categoria;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_sucursal")
     private SucursalEntity sucursal;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_comb")
     private CombustibleEntity combustible;
+
+    @OneToMany(mappedBy = "vehiculo")
     private List<AlquilerEntity> alquileres;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "vehiculo_equipamiento",
+            joinColumns = @JoinColumn(name = "id_vehiculo"),
+            inverseJoinColumns = @JoinColumn(name = "id_equipamiento")
+    )
     private List<EquipamientoEntity> equipamientos;
 }

@@ -24,6 +24,8 @@ public class CombustibleEntity implements Serializable {
     private Integer id;
     private String nombre;
     private String descripcion;
+
+    @OneToMany(mappedBy = "combustible")
     private List<VehiculoEntity> vehiculos;
 
 }

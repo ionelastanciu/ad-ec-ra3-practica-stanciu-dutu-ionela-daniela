@@ -23,5 +23,7 @@ public class EquipamientoEntity implements Serializable {
     private Integer id;
     private String nombre;
     private String descripcion;
+
+    @ManyToMany(mappedBy = "equipamientos")
     private List<VehiculoEntity> vehiculos;
 }

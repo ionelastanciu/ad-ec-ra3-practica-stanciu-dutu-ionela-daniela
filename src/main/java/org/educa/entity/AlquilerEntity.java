@@ -28,8 +28,17 @@ public class AlquilerEntity implements Serializable {
     @Column(name = "fecha_fin")
     private LocalDate fechaFin;
     private BigDecimal precio;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cliente")
     private ClienteEntity cliente;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_vehiculo")
     private VehiculoEntity vehiculo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_seguro")
     private SeguroEntity seguro;
 
 }

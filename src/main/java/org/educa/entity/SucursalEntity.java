@@ -26,6 +26,7 @@ public class SucursalEntity implements Serializable {
     private String ciudad;
     private String pais;
     private String cp;
+
     @OneToMany(mappedBy = "sucursal")
     private List<VehiculoEntity> vehiculos;
 

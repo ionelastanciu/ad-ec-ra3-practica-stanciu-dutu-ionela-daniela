@@ -26,6 +26,7 @@ public class DireccionEntity implements Serializable {
     private String pais;
     @Column(name = "c_p")
     private String cp;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente")
     private ClienteEntity cliente;

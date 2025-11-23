@@ -23,5 +23,6 @@ public class SeguroEntity implements Serializable {
     private Integer id;
     private String nombre;
     private String descripcion;
+    @OneToMany(mappedBy = "seguro")
     private List<AlquilerEntity> alquileres;
 }
