@@ -21,6 +21,7 @@ public class AlquilerEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_alquiler")
     private Integer id;
     @Column(name = "fecha_ini")
     private LocalDate fechaIni;

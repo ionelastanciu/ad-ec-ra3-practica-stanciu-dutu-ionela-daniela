@@ -28,6 +28,8 @@ public class VehiculoEntity implements Serializable {
     private String color;
     private Integer anio;
     private CategoriaEntity categoria;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_sucursal")
     private SucursalEntity sucursal;
     private CombustibleEntity combustible;
     private List<AlquilerEntity> alquileres;

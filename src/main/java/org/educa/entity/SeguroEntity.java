@@ -19,6 +19,7 @@ public class SeguroEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_seguro")
     private Integer id;
     private String nombre;
     private String descripcion;

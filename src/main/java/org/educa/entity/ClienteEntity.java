@@ -21,6 +21,7 @@ public class ClienteEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente")
     private Integer id;
     private String nombre;
     @Column(name = "p_apellido")
@@ -30,7 +31,10 @@ public class ClienteEntity implements Serializable {
     private String email;
     private String dni;
     private String telefono;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<AlquilerEntity> alquileres;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<DireccionEntity> direcciones;
 
 }

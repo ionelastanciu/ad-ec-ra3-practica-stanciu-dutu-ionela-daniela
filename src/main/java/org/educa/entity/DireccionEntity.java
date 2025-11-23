@@ -19,12 +19,15 @@ public class DireccionEntity implements Serializable {
     private static final long serialVerionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_direccion")
     private Integer id;
     private String calle;
     private String ciudad;
     private String pais;
     @Column(name = "c_p")
     private String cp;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cliente")
     private ClienteEntity cliente;
 
 }
