@@ -30,7 +30,7 @@ public class VehiculoService {
      */
     public BigDecimal getPrecioPorDia(VehiculoEntity vehiculo) {
         String categoria = vehiculo.getCategoria().getNombre().toUpperCase();
-        return switch (categoria){
+        return switch (categoria) {
             case "M" -> BigDecimal.valueOf(10);
             case "E" -> BigDecimal.valueOf(20);
             case "C" -> BigDecimal.valueOf(70);

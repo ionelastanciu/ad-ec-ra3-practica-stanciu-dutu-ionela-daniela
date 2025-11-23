@@ -17,10 +17,10 @@ public class SeguroService {
 
     public BigDecimal getPrecioPorDia(SeguroEntity seguro) {
         String nombre = seguro.getNombre().toLowerCase();
-        if(nombre.contains("terceros")) return BigDecimal.valueOf(5);
-        if(nombre.contains("300")) return BigDecimal.valueOf(20);
-        if(nombre.contains("150")) return BigDecimal.valueOf(35);
-        if(nombre.contains("todo riesgo")) return BigDecimal.valueOf(50);
+        if (nombre.contains("terceros")) return BigDecimal.valueOf(5);
+        if (nombre.contains("300")) return BigDecimal.valueOf(20);
+        if (nombre.contains("150")) return BigDecimal.valueOf(35);
+        if (nombre.contains("todo riesgo")) return BigDecimal.valueOf(50);
         return BigDecimal.ZERO;
     }
 }

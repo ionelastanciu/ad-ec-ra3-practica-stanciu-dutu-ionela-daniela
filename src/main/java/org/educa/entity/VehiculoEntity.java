@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -43,11 +44,12 @@ public class VehiculoEntity implements Serializable {
     @OneToMany(mappedBy = "vehiculo")
     private List<AlquilerEntity> alquileres;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany()
     @JoinTable(
             name = "vehiculo_equipamiento",
             joinColumns = @JoinColumn(name = "id_vehiculo"),
-            inverseJoinColumns = @JoinColumn(name = "id_equipamiento")
+            inverseJoinColumns = @JoinColumn(name = "id_equip")
     )
+    @ToString.Exclude
     private List<EquipamientoEntity> equipamientos;
 }

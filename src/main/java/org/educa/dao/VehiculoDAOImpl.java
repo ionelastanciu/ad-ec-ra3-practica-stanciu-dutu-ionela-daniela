@@ -11,12 +11,20 @@ import java.util.List;
 public class VehiculoDAOImpl implements VehiculoDAO {
     @Override
     public List<VehiculoEntity> findBySucursal(SucursalEntity sucursal) {
-        try(Session session = HibernateConfiguration.getSessionFactory().openSession()){
+        try (Session session = HibernateConfiguration.getSessionFactory().openSession()) {
             session.beginTransaction();
-            String hql = "FROM VehiculoEntity v WHERE v.id_sucursal = :id";
+            String hql = """
+                    SELECT DISTINCT v
+                    FROM VehiculoEntity v
+                    LEFT JOIN FETCH v.categoria
+                    LEFT JOIN FETCH v.equipamientos
+                    WHERE v.sucursal.id = :id
+                    """;
             Query<VehiculoEntity> query = session.createQuery(hql, VehiculoEntity.class)
                     .setParameter("id", sucursal.getId()).setReadOnly(true);
-            return query.list();
+            List<VehiculoEntity> list = query.list();
+            session.getTransaction().commit();
+            return list;
         }
     }
 }

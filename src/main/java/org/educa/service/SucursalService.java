@@ -11,7 +11,6 @@ public class SucursalService {
     private final SucursalDAO sucursalDAO = new SucursalDAOImpl();
 
     public List<SucursalEntity> findAll() {
-
         return sucursalDAO.findAll();
     }
 }
